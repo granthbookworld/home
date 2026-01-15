@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granth - The Book World | Contact</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container nav-container">
+            <div class="logo">
+                <span class="logo-mark"><img src="images/LOGO2.png" alt="LOGO2"></span>
+                <div class="logo-text">
+                    <h1>Granth</h1>
+                    <p>The Book World</p>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="index.html">Home</a>
+                <a href="books.html">Books</a>
+                <a href="about.html">About</a>
+                <a href="contact.html" class="active">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="page-main">
+        <section class="page-header-section">
+            <div class="container">
+                <h2>Contact &amp; Visit</h2>
+                <p>Find our opening hours, address and ways to reach us.</p>
+            </div>
+        </section>
+
+        <section class="contact-section">
+            <div class="container contact-grid">
+                <div class="contact-info-block">
+                    <h3>Store Details</h3>
+                    <p class="contact-label">Opening Hours</p>
+                    <ul class="timing-list">
+                        <li>Monday – Saturday: 10:00 AM – 8:00 PM</li>
+                        <li>Sunday: 11:00 AM – 6:00 PM</li>
+                    </ul>
+
+                    <p class="contact-label">Address</p>
+                    <p class="contact-text">
+                        Granth – The Book World<br>
+                        Main road, 5th Lane, Rajarampuri, Kolhapur, 
+                        Maharashtra – 416008<br>
+                    </p>
+
+                    <p class="contact-label">Contact</p>
+                    <p class="contact-text">
+                        Phone: +91-76671-31842<br>
+                        Email: granth.bookworld@kop.com
+                    </p>
+
+                    <p class="contact-label">Social</p>
+                    <p class="contact-text">
+                        Instagram: @granthbookworld<br>
+                        Facebook: Granth – The Book World, KOLHAPUR<br>
+                        WhatsApp: +91-76671-31842
+                    </p>
+                </div>
+                <div class="contact-form-block">
+                    <h3>Pledge to Visit</h3>
+                    <p>
+                        Planning to drop by? Leave us a short message –
+                        you can ask about a book or share what you’d like to read.
+                    </p>
+                    <form class="pledge-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Ask about a book or share your thoughts" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-primary">Submit Pledge</button>
+                        <p class="form-note">
+                            This form is for queries only. Purchases can be made directly at the store.
+                        </p>
+                    </form>
+                    <p id="formStatus" class="form-note"></p>
+
+                </div>
+                <div class="map-container">
+                    <iframe
+                        src="https://www.google.com/maps?q=Granth%20-%20The%20Book%20World&output=embed"
+                        width="100%"
+                        height="350"
+                        style="border:0;"
+                        allowfullscreen=""
+                        loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    <p class="map-address">
+                        <a href="https://maps.app.goo.gl/DU8TTLc56oiAhN8J7" target="_blank">
+                            Open in Google Maps
+                        </a>
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <p>&copy; 2025 Granth – The Book World. All rights reserved.</p>
+            <a href="contact.html" class="footer-contact-btn">Contact Us</a>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/granththebookworld?igsh=MTc2MGIyOTMyNGw5bQ==" aria-label="Instagram">Instagram</a>
+                <a href="https://www.facebook.com/share/1ALdHyD9cm/" aria-label="Facebook">Facebook</a>
+                <a href="https://wa.me/+917667131842" aria-label="WhatsApp">WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+    <script>
+        const form = document.getElementById("contactForm");
+        const status = document.getElementById("formStatus");
+
+        form.addEventListener("submit", function (e) {
+        e.preventDefault(); // stop page reload
+
+        const formData = new FormData(form);
+
+        fetch("https://script.google.com/macros/s/AKfycbwj7siTUMN12X1NoFOxSu1CrZ9SkKyRfIm3qhAki-mcxqammZf4c07xY64lumxgVehVBg/exec", {
+        method: "POST",
+        body: formData
+        })
+        .then(response => response.text())
+        .then(data => {
+        status.textContent = "Thank you! Your message has been recorded.";
+        form.reset();
+        })
+        .catch(error => {
+        status.textContent = "Something went wrong. Please try again.";
+        });
+        });
+    </script>
+</body>
+</html>
